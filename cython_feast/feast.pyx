@@ -249,10 +249,7 @@ class GSolver():  # solver for general matrix (real/complex auto detection)
             if self.normed!=1:
                 self.__normlize()
             Xc=np.frombuffer(self.X.data,dtype=np.complex128).reshape([self.M00*2,self.N]).T
-            if self.fpm[15]==0: # bug? Gauss left_vec start at new M0; Trapezoidal left_vec start at origin M0
-                offset=self.M0
-            else:
-                offset=self.M00
+            offset=self.M0
             return Xc[:,offset:offset+self.M]
     
     def resid(self):
