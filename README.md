@@ -1,5 +1,5 @@
 # PYFEAST
-call FEAST sparse eigensolver in Python. Depends on python3, numpy, scipy, cython.
+call [FEAST sparse eigensolver](http://www.ecs.umass.edu/~polizzi/feast/) in Python. Depends on python3, numpy, scipy, cython.
 
 Solve standard HX=EX problem, H can be Real-Symmetric, Complex Hermitian, or General in [csr_matrix](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html) format.
 
@@ -35,3 +35,7 @@ Step by step setup for **Ubuntu 18.08**, a recent linux dist. should also work.
 * check quspin_feast_general.ipynb for general matrix
 
 * check quspin_feast_hermitian.ipynb for Hermitian system
+
+# Uninstall or reinstall
+
+* remove feast `pip uninstall feast` and reinstall `python setup.py build_ext install`
