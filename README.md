@@ -12,9 +12,11 @@ Step by step setup for **Ubuntu 18.08**, a recent linux dist. should also work.
   
 * `sudo apt install build-essential gfortran`
 
-3. install Intel MKL library, following [Intel web site](https://software.intel.com/content/www/us/en/develop/articles/installing-intel-free-libs-and-python-apt-repo.html), at lest install component **Intel® Math Kernel Library**.
+3 (MKL user). install Intel MKL library, following [Intel web site](https://software.intel.com/content/www/us/en/develop/articles/installing-intel-free-libs-and-python-apt-repo.html), at lest install component **Intel® Math Kernel Library**.
 
 * Activite MKL variables in terminal `source /opt/intel/mkl/bin/mklvars.sh intel64`
+
+3 (openblas user). install openblas library, `sudo apt install libopenblas-dev`
 
 4. install **Python3**, [Anaconda](https://www.anaconda.com/products/individual) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) is recommanded.
 
@@ -24,11 +26,15 @@ Step by step setup for **Ubuntu 18.08**, a recent linux dist. should also work.
 
 5. build **FEAST** library
 
-* go to folder pyfeast/FEAST/src, run `make feast`
+* (MKL user) go to folder pyfeast/FEAST/src, run `make feast`
+
+* (openblas user) go to folder pyfeast/FEAST/src, run `make MKL=no feast`
 
 6. build **PYFEAST** python package
 
-* go to folder pyfeast/cython_feast, run `python3 setup.py build_ext install`
+* (MKL user) go to folder pyfeast/cython_feast, run `python3 setup.py build_ext install`
+
+* (openblas user) go to folder pyfeast/cython_feast, run `python3 setup_openblas.py build_ext install`
 
 7. see example, usage & test (**quspin** needed, optional)
 
@@ -38,4 +44,4 @@ Step by step setup for **Ubuntu 18.08**, a recent linux dist. should also work.
 
 # Uninstall or reinstall
 
-* remove feast `pip uninstall feast` and reinstall `python setup.py build_ext install`
+* remove feast `pip3 uninstall feast` and reinstall **PYFEAST** python package (step 6).
